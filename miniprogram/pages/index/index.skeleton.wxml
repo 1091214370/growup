@@ -1,0 +1,53 @@
+<!--
+此文件为开发者工具生成，生成时间: 2020/8/3 下午9:26:12 
+使用方法：
+在 pages\index\index.wxml 引入模板
+
+```
+<import src="index.skeleton.wxml"/>
+<template is="skeleton" wx-if="{{loading}}" />
+```
+
+在 pages\index\index.wxss 中引入样式
+```
+@import "./index.skeleton.wxss";
+```
+
+更多详细信息可以参考文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/skeleton.html
+-->
+<template name="skeleton">
+  <view class="sk-container">
+    <view class="container">
+      <view>
+        <button class="userinfo-avatar sk-button sk-pseudo sk-pseudo-circle" open-type="getUserInfo" size="default">
+        </button>
+      </view>
+      <view>
+        <button open-type="openSetting" size="default" class="sk-button sk-pseudo sk-pseudo-circle">
+        </button>
+      </view>
+      <view class="run-data-total sk-transparent">
+        最近一月总步数：
+        <text class="run-data-total-number">
+        </text>
+      </view>
+      <view class="echart_panel">
+        <view is="components/ec-canvas/ec-canvas" id="mychart-line">
+          <view bindtouchend="touchEnd" bindtouchmove="touchMove" bindtouchstart="touchStart" canvas-id="mychartLine" class="canvas--ec-canvas sk-image">
+          </view>
+        </view>
+      </view>
+      <view class="run-data-total sk-transparent sk-text-34-0000-45 sk-text">
+        步数排行(TOP 10)
+      </view>
+      <view class="echart_panel_bar">
+        <view is="components/ec-canvas/ec-canvas" id="mychart-bar">
+          <view bindtouchend="touchEnd" bindtouchmove="touchMove" bindtouchstart="touchStart" canvas-id="mychartBar" class="canvas--ec-canvas sk-image">
+          </view>
+        </view>
+      </view>
+      <view class="mask">
+      </view>
+    </view>
+  </view>
+</template>

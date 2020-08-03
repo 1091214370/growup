@@ -7,6 +7,10 @@ page {
   justify-content: flex-start;
   position: relative;
 }
+.userInfo {
+  z-index: 11;
+  margin-bottom: 20rpx;
+}
 .run-data-total {
   width: 690rpx;
   height: 100rpx;
@@ -29,7 +33,7 @@ page {
 
 .echart_panel_bar {
   width: 750rpx;
-  height: 1000rpx;
+  height: 700rpx;
 }
 .mask {
   width: 100%;

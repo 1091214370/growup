@@ -1,12 +1,20 @@
 <!--index.wxml-->
 <view class="container">
+  <view hidden="{{weRunFlag}}" class="userInfo">
+    <button 
+      bindtap="onGetRunData"
+      size="mini"
+      type="primary"
+      plain="true"
+    >获取步数</button>
+  </view>
   <view class="run-data-total">最近一月总步数： <text class="run-data-total-number">{{ runTotal }}</text></view>
   <view class="echart_panel">
       <ec-canvas id="mychart-line" canvas-id="mychartLine" ec="{{ ec }}"></ec-canvas>
   </view>
-  <view class="run-data-total">步数排行</view>
+  <view class="run-data-total">步数排行(TOP 10)</view>
   <view class="echart_panel_bar">
       <ec-canvas id="mychart-bar" canvas-id="mychartBar" ec="{{ ec }}"></ec-canvas>
   </view>
-  <view class="mask"></view>
+  <view class="mask"/>
 </view>

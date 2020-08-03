@@ -1,5 +1,4 @@
 import * as echarts from '../../components/ec-canvas/echarts';
-
 //index.js
 const app = getApp()
 
@@ -8,7 +7,7 @@ Page({
     avatarUrl: './user-unlogin.png',
     userInfo: {},
     logged: false,
-    takeSession: false,
+    weRunFlag: false,
     requestResult: '',
     runTotal: [],
     ec: {
@@ -17,14 +16,13 @@ Page({
   },
 
   onLoad: function() {
+    const that = this;
     if (!wx.cloud) {
       wx.redirectTo({
         url: '../chooseLib/chooseLib',
       })
       return
     }
-    this.ecLine =this.selectComponent('#mychart-line');
-    this.ecBar =this.selectComponent('#mychart-bar');
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -34,13 +32,26 @@ Page({
             success: res => {
               this.setData({
                 avatarUrl: res.userInfo.avatarUrl,
-                userInfo: res.userInfo
+                userInfo: res.userInfo,
+                logged: true,
               });
-              this.onGetRunData();
-            }
+            },
+            fail: e => {
+              console.error('获取用户信息失败', e);
+              this.setData({ logged: false });
+            },
           });
+        } else {
+          this.setData({ logged: false });
         }
-      }
+        if (res.authSetting['scope.werun']) {
+          this.setData({ weRunFlag: true });
+          this.onGetRunData();
+        } else {
+          that.onGetRunData();
+        }
+      },
+      fail: e => console.error('获取用户信息失败', e),
     })
   },
 
@@ -50,7 +61,7 @@ Page({
         logged: true,
         avatarUrl: e.detail.userInfo.avatarUrl,
         userInfo: e.detail.userInfo
-      })
+      }); 
     }
   },
 
@@ -73,6 +84,8 @@ Page({
     wx.showLoading({
       title: '加载中',
     })
+    this.ecLine =this.selectComponent('#mychart-line');
+    this.ecBar =this.selectComponent('#mychart-bar');
     wx.getWeRunData({
       success: (result) => {
         wx.cloud.callFunction({
@@ -88,7 +101,7 @@ Page({
           let runTotal = 0;
           let data = res.result.event.weRunData.data.stepInfoList || [];
           const sortData = data.concat();
-          sortData.sort((a, b) => a.step - b.step);
+          sortData.sort((a, b) => a.step - b.step).splice(10, 30);
           for (let i in data) { // 运动趋势折线图
             runTotal += data[i].step;
             xData.push(new  Date(Number(data[i].timestamp) * 1000).toLocaleString()
@@ -107,17 +120,19 @@ Page({
             yData,
             runTotal,
             xSortData,
-            ySortData
+            ySortData,
+            weRunFlag: true,
           })
           wx.hideLoading();
-        })
-        .catch(e => {
+        }).catch(e => {
           wx.hideLoading();
+          this.setData({ weRunFlag: false });
           console.error('获取微信步数云函数报错', e);
         })
       },
       fail: (err) => {
         wx.hideLoading();
+        this.setData({ weRunFlag: false });
         console.error('获取微信步数失败', err);
       }
     })
@@ -191,7 +206,7 @@ Page({
         },
         itemStyle: {
           color: '#FF8C00',
-          barBorderRadius: [0, 5, 5, 0] //（顺时针左上，右上，右下，左下）
+          barBorderRadius: [0, 25, 25, 0] //（顺时针左上，右上，右下，左下）
         },
       }]
     };
