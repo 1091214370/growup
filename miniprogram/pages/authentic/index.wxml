@@ -1,0 +1,8 @@
+<!--pages/authentic/index.wxml-->
+<view class="container">
+  <view>
+    <open-data type="userAvatarUrl"></open-data>
+    <open-data type="userNickName"></open-data>
+    <button>授权登陆</button>
+  </view>
+</view>

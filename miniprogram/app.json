@@ -1,6 +1,11 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/sport/index",
+    "pages/authentic/index",
+    "pages/tag/index",
+    "pages/replay/index",
+    "pages/main/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -9,6 +14,31 @@
     "navigationBarTitleText": "养肥自己",
     "navigationBarTextStyle": "black"
   },
+  "tabBar": {
+    "selectedColor": "#1296db",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "iconPath": "images/home.png",
+      "selectedIconPath": "images/home-active.png",
+      "text": "首页"
+    },
+    {
+      "pagePath": "pages/sport/index",
+      "iconPath": "images/sport.png",
+      "selectedIconPath": "images/sport-active.png",
+      "text": "运动"
+    },
+    {
+      "pagePath": "pages/main/index",
+      "iconPath": "images/main.png",
+      "selectedIconPath": "images/main-active.png",
+      "text": "我的"
+    }
+  ]
+  },
   "sitemapLocation": "sitemap.json",
-  "style": "v2"
+  "style": "v2",
+  "useExtendedLib": {
+    "weui": true
+  }
 }

@@ -1,11 +1,11 @@
-// pages/index/index.js
+// pages/tag/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    timeLine: [],
+
   },
 
   /**
