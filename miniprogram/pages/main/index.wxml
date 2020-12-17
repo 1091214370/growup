@@ -5,7 +5,7 @@
       <open-data type="userAvatarUrl"></open-data>
     </view>
     <view class="userinfo-nickname">
-      <open-data type="userNickName" open-gid="xxxxxx"></open-data>
+      <open-data type="userNickName"></open-data>
     </view>
   </view>
   <view>
@@ -13,7 +13,7 @@
       <mp-cell link hover value="复盘" >
         <image slot="icon" src="../../images/replay.png" style="margin-right: 16px;vertical-align: middle;width:60rpx; height: 60rpx;"></image>
       </mp-cell>
-      <mp-cell link hover value="标签" >
+      <mp-cell link value="标签" url="../tag/index">
         <image slot="icon" src="../../images/tag.png" style="margin-right: 16px;vertical-align: middle;width:60rpx; height: 60rpx;"></image>
       </mp-cell>
       <mp-cell link hover value="分享">

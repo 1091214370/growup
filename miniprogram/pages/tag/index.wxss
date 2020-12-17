@@ -1,1 +1,29 @@
 /* pages/tag/index.wxss */
+.add-tag-btn {
+  position: absolute;
+  width: 140rpx!important;
+  height: 140rpx;
+  line-height: 90rpx;
+  color: #fff;
+  bottom: 100rpx;
+  right: 30rpx;
+  background-color: rgb(101, 147, 74);
+  border-radius: 100rpx;
+  font-size: 32px;
+  padding: 8px;
+}
+
+.tags-list {
+  margin-top: 50rpx;
+}
+
+.tag {
+  width: 80%;
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #fff;
+  margin: auto;
+  border-radius: 10rpx;
+  margin-bottom: 10rpx;
+}

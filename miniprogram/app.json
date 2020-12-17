@@ -3,8 +3,8 @@
     "pages/index/index",
     "pages/sport/index",
     "pages/authentic/index",
-    "pages/tag/index",
     "pages/replay/index",
+    "pages/tag/index",
     "pages/main/index"
   ],
   "window": {

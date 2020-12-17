@@ -1,2 +1,18 @@
 <!--pages/tag/index.wxml-->
-<text>pages/tag/index.wxml</text>
+<view>
+  <button wx:if="{{tags.length < 10}}" class="add-tag-btn" bindtap="openModal">+</button>
+  <view class="tags-list" wx:key="tag_id" wx:for="{{tags}}">
+    <view class="tag" style="background: {{ item.color }}">{{ item.tag_name }}</view>
+  </view>
+  <mp-dialog title="添加标签" show="{{visable}}" bindbuttontap="addTag" buttons="{{buttons}}">
+    <view>仅能添加10个呦</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view>
+          <input bindinput="bindKeyInput" class="weui-input" maxlength="10" placeholder="输入标签名称" value="{{inputValue}}" />
+        </view>
+      </view>
+    </view>
+  </mp-dialog>
+</view>
+
