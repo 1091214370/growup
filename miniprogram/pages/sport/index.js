@@ -44,8 +44,7 @@ Page({
           const ySortData = [];
           let runTotal = 0;
           let data = res.result.event.weRunData.data.stepInfoList || [];
-          const sortData = data.concat();
-          sortData.sort((a, b) => a.step - b.step).splice(10, 30);
+          const sortData = data.concat().sort((a, b) => a.step - b.step).splice(20,30);
           for (let i in data) { // 运动趋势折线图
             runTotal += data[i].step;
             xData.push(new  Date(Number(data[i].timestamp) * 1000).toLocaleString()

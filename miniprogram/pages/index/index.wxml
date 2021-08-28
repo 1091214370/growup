@@ -1,4 +1,19 @@
 <!--pages/main/index.wxml-->
 <view class="container">
-
+  <view class="choice-eat-what-btn" bind:tap="handleEatWhat">点我看看今天吃什么</view>
+  <view wx:if="{{resultEat}}">{{resultEat}}</view>
+  <view wx:if="{{resultObj.address}}">{{resultObj.address}}</view>
+  <view wx:if="{{resultObj.address}}">距您{{resultObj.distance}}米</view>
+  <!-- <view wx:if="{{stores.length}}" bind:tap="handleShowAll">查看附近</view> -->
+  <view class="stroes-list" wx:if="{{showAll}}" >
+    <view
+      wx:if="{{stores.length}}"
+      wx:for="{{stores}}"
+      wx:key="id"
+    >
+      <view>{{item.name}}</view>
+      <view>{{item.address}}</view>
+      <view>{{item.distance}}米</view>
+    </view>
+  </view>
 </view>

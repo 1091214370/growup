@@ -22,7 +22,7 @@ page {
   font-size: 16px;
 }
 .run-data-total-number {
-  color: #00FA9A;
+  color: #0089fb;
   font-size: 20px;
 }
 .echart_panel {

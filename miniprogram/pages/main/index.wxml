@@ -10,9 +10,9 @@
   </view>
   <view>
     <mp-cells>
-      <mp-cell link hover value="复盘" >
+      <!-- <mp-cell link hover value="复盘" >
         <image slot="icon" src="../../images/replay.png" style="margin-right: 16px;vertical-align: middle;width:60rpx; height: 60rpx;"></image>
-      </mp-cell>
+      </mp-cell> -->
       <mp-cell link value="标签" url="../tag/index">
         <image slot="icon" src="../../images/tag.png" style="margin-right: 16px;vertical-align: middle;width:60rpx; height: 60rpx;"></image>
       </mp-cell>

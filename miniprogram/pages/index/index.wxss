@@ -1,1 +1,18 @@
 /* pages/main/index.wxss */
+.choice-eat-what-btn {
+  width: 80%;
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #fff;
+  margin: auto;
+  border-radius: 10rpx;
+  margin-bottom: 10rpx;
+  background: rgb(222,211,140);
+  margin-top: 50rpx;
+}
+.stroes-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
